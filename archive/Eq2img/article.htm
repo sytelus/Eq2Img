@@ -1,0 +1,90 @@
+<!-- Article Starts - DO NOT ADD HTML/BODY START TAGS-->
+
+<!-- Download Links -->
+<ul class=download>
+<li><a href='Eq2Img/Eq2Img_all.zip'>Download all source code and WinForms demo - 1253 Kb</a></li>
+</ul>
+
+<!-- Article image -->
+<p><img src='Eq2Img/demo.jpg' alt='Sample Image - demo.jpg' height='460' width='424'></p>
+
+<h2>Introduction</h2>
+<p>If you own applications such as blogs, forums, wiki and strive to delight your customers with every new releases, you probably don't need justification for this feature. In this article I'll show you how you can allow your users to type in math equations and have it rendered in nice textbook format with absolutely minimal coding effort on your part.
+</p>
+<p>The basic idea is to let user type in something like this:
+</p>
+<p align="center"><font color="blue">&lt;</font><font color="#993333">img</font> <font color="red">src</font><font color="green">=".?<strong>$ x^2 = 25 $</strong>"</font><font color="blue">&gt;</font></p>
+<p>
+Above request first goes to your default.aspx where one line of code detects if it's a request for an image for an equation and transfers it to a handler. The handler uses MimeTeX to generate the gif file for the equation and returns to browser. Fortunately, you don't have to care about any of these as its all wrapped and ready for drag and drop.
+</p>
+
+<h2>Background</h2>
+<p><a href="http://www.forkosh.com/mimetex.html">MimeTeX</a> is the guts of this code. The MimeTeX was originally written by John Forkosh to execute under Unix and as CGI EXE under Windows. Obviously, while this works, it has many disadvantages like you have to have an ability to run CGI EXE on IIS which is a difficult feature get for shared IIS hosting. Even if you have dedicated server, the CGI EXE solution won't scale if you want to support thousands of users. Also, users would be needed to add mimetex.exe in to image tag's source which is less intuitive for users of applications like blogs or forums.
+<p>
+For this reasons I decided to convert the MimeTeX code in to Win32 DLL. This is pretty simple task of taking C files, create a VC++ Win32 DLL project, add an DLL export and make other minor changes. But the bigger problem comes later: the DLL runs in to in-process and hence we must be sure that the C code is free of memory leaks. Unfortunately this wasn't the case but fortunately debug functions like <code>_CrtDumpMemoryLeaks</code> makes it little easier to find them. So after a weekend worth of effort, this uncharted code was free of all known memory leaks. Over the next couple of week John Forkosh and I were exchanging long long emails discussing fixes I'd made, perfecting them and thoroughly testing the code. It was a good fun. The result is the MimeTeX Win32 DLL which you can now call from your .Net code using <code>DLLImport</code>.
+</p>
+<p>
+My next step was to create ASP.Net <code>IHttpHandler</code> that would wrap this call, add caching on top of it and allow other customizations and admin functionality.
+</p>
+<h2>Using the code</h2>
+You can use this code in many ways:
+<ul>
+<li><b>Integrate with your Web apps:</b>
+<p>Download the code, drop the files in folder OnlyRequiredFiles into your ASP.Net project and drop the MimeTex.DLL in bin folder. Edit your default.aspx page and put this line somewhere in Page_Load:
+<pre>
+Astrila.Eq2Img.ShowEq.HandleEquationQueries();
+</pre>
+Recompile! Make sure you have copied the CachedEqImages folder and ASP.Net has permissions to write in to it. That's all there is! You may create an HTML file in virtual root folder with any of the above image tags for testing</p>
+</li>
+<li>
+<b>Use as a separate web app:</b>
+<p>Copy Eq2Img folder in your wwwroot. Create a virtual folder, make sure you have copied the CachedEqImages folder and ASP.Net has permissions to write in to it. You should be now up and running! Though remember your users would need to reference this virtual folder in image tags like this:
+</p>
+<p align="center"><font color="blue">&lt;</font><font color="#993333">img</font> <font color="red">src</font><font color="green">="ShowEq?<strong>$ x^n + y^n = z^n $</strong>"</font><font color="blue">&gt;</font></p>
+</li>
+<li>
+<strong>Use in desktop apps:</strong> 
+<p>This is pretty easy. You just need to <code>DLLImport</code> MimeTex.DLL and call in to CreateGifForEq function like this:
+<pre>
+	[System.Runtime.InteropServices.DllImport("MimeTex.dll")]
+	internal static extern int CreateGifFromEq(string expr, string fileName);
+</pre>
+You can look in to a sample WinForms app in Eq2ImgWinForms folder which looks like this:
+</p>
+<img scr='eq2img/eq2img_screen.jpg'>
+</li>
+</ul>
+
+<p>
+Next question sure is what is the format of equations? How do you write greek symblogs, integrals, limits and so on. The format is known as TeX (or LaTeX) and you might be familier with it if you ever authored scientific document. But if you are not, it's pretty simple format to learn. For instance to display simbol you write \pi and to display integration sign you write \int and so on. You can find good doumentation here and here but you may also choose to be lazy and just use free WYSWYG equation editor called <a href="http://www.dessci.com/en/products/texaide/">TeXAide</a> which will build the TeX string for you. Note that TeX ignores the white spaces.
+</p>
+
+<h2>Points of Interest</h2>
+<p>
+You might have noticed that MimeTeX goes beyond just supporting equations conforming to TeX format. You can also create sophisticated figures using LaTeX commands such as following:
+</p>
+<p>
+<img align="center" src='eq2img/example_figure.gif'>. More examples are at <a href="http://www.forkosh.dreamhost.com/source_mimetex.html?referer=http%3A%2F%2Fwww.google.com%2Fsearch%3Fsourceid%3Dnavclient-ff%26ie%3DUTF-8%26q%3Dmimetex&remhost=#examples">John's website</a>.
+</p>
+<p>
+I've also thrown in some admin functionality to let you delete cache files (these are very small typically 1KB JPGs files). You can access this at Eq2ImgAdmin.aspx. This page also lets you to dynamically <strong>unload</strong> the MimeTeX DLL. Remember this is a pure Win32 DLL so it gets locked by ASP.Net process once its loaded. That means you can't update the DLL without restarting the IIS, an unfortunate scenario for shared hosting or even otherwise. To solve this problem, the admin page allows you to dynamically detach this DLL from the process. To do this I used <code>GetModuleHandle</code> and <code>FreeLibrary</code> Windows API calls. The admin functionality by default is not enabled. Follow the messages to enable it. Also note that you can exclude this page completely.
+</p>
+<p>
+The code supports bunch of customizations settings that you can put in web.config. By default none are required but if you prefer, for example, you can choose to run MimeTeX out of process instead of in-proc OR you can run it as CGI or from an external URL. You can set maximum length of equation strings and maximum cache size and cache folder and so on. I haven't got yet enough time to document them but they are easy to figure out from class Eq2ImgSettings and they all take form of
+<pre>
+&lt;appSettings&gt;
+&lt;add key="Eq2Img_ClientCacheAgeInSeconds" value="200" /&gt;
+&lt;/appSettings&gt;
+</pre>
+</p>
+<p>
+Finally here's the security disclosure you all had been waiting for: You are running unmanaged code from ASP.Net when you call in to MimeTeX DLL. That means ASP.Net should have sufficient permission to this (by default it does). However bigger concern is possible nasty C bugs such as memory leaks and invalid pointers that might make your website unstable. If that ever happens you can set an option in your web.config so that MimeTeX would run out of process instead. In my testing it does works satisfactorily in-proc. Also as MimeTeX is an open source project, anyone has liberty to fix the bugs as they are found.
+</p>
+<h2>Need Help?</h2>
+<p>
+I'm passionate about enabling the web to author scientific content. If you have any problem using this code in your application, you can <a href="http://shitalshah.com/contact.aspx">contact me</a> for free assistance.
+</p>
+<h2>History</h2>
+<p>
+23 Aug 2005 - Newly Created.
+</p>

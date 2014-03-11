@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NineRays.ILOMD.Options.Project>
+  <ExportObfuscationMapFile>
+  </ExportObfuscationMapFile>
+  <AssemblyList>
+    <NineRays.ILOMD.Options.AssemblyFileName>
+      <ObfuscationOptions>
+        <NineRays.ILOMD.Options.Options>
+          <SoftwareWatermark>
+          </SoftwareWatermark>
+        </NineRays.ILOMD.Options.Options>
+      </ObfuscationOptions>
+      <Name>..\SharpTestGround\SharpTestGround\bin\Debug\SharpTestGround.exe</Name>
+      <Flags>VSProject</Flags>
+    </NineRays.ILOMD.Options.AssemblyFileName>
+  </AssemblyList>
+  <SaveToDirectory>.\Spices_output</SaveToDirectory>
+  <StrongNameKeyFile>
+  </StrongNameKeyFile>
+  <Modified>True</Modified>
+</NineRays.ILOMD.Options.Project>

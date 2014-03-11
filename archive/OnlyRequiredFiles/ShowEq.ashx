@@ -1,0 +1,1 @@
+<% @WebHandler language="C#" class="Astrila.Eq2Img.ShowEq" codebehind="ShowEq.cs" %>

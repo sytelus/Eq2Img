@@ -1,0 +1,1 @@
+<% @WebHandler language="vb" class="Astrila.Eq2Img.ShowEq" codebehind="ShowEq.vb" %>

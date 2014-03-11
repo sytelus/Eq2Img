@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.32" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">c:\program files\microsoft fxcop 1.32\Xml\FxCopReport.Xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>100</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>10</RuleExceptionsThreshold>
+  <Spelling Locale="en-us" />
+  <VersionAware>False</VersionAware>
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/bin/Eq2Img.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.32">
+  <Namespaces>
+   <Namespace Name="Astrila.Eq2Img">
+    <Messages>
+     <Message Id="Astrila" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-15 13:16:33Z">
+      <Issue Name="Namespace">
+       <Item>Astrila</Item>
+       <Item>Astrila.Eq2Img</Item>
+      </Issue>
+     </Message>
+     <Message Id="Img" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-15 13:16:33Z">
+      <Issue Name="Namespace">
+       <Item>Img</Item>
+       <Item>Astrila.Eq2Img</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/bin/Eq2Img.dll">
+    <Modules>
+     <Module Name="eq2img.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Excluded" Created="2005-08-15 13:16:33Z">
+        <Issue Name="NoStrongName">
+         <Item>Eq2Img</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Excluded" Created="2005-08-16 13:49:48Z">
+        <Issue Name="NoAttr">
+         <Item>Eq2Img</Item>
+        </Issue>
+        <Notes>
+         <User Name="sshah">
+          <Note Id="0" />
+         </User>
+        </Notes>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="Astrila.Eq2Img">
+        <Types>
+         <Type Name="_default">
+          <Messages>
+           <Message TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Excluded" Created="2005-08-16 13:49:48Z">
+            <Issue Name="Type">
+             <Item>_default</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Excluded" Created="2005-08-16 13:49:48Z">
+            <Issue Name="Type">
+             <Item>_default</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="Eq2ImgAdmin">
+          <Messages>
+           <Message Id="Img" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-15 13:16:33Z">
+            <Issue Name="Type">
+             <Item>Img</Item>
+             <Item>Astrila.Eq2Img.Eq2ImgAdmin</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name=".ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2005-08-15 13:16:33Z">
+              <Issue>
+               <Item>Eq2ImgAdmin.Eq2ImgAdmin()</Item>
+               <Item>settings</Item>
+               <Item>Astrila.Eq2Img.Eq2ImgSettings</Item>
+               <Item>null</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Eq2ImgSettings">
+          <Messages>
+           <Message Id="Img" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-15 13:16:33Z">
+            <Issue Name="Type">
+             <Item>Img</Item>
+             <Item>Astrila.Eq2Img.Eq2ImgSettings</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="ClientCacheAgeForErrorMessages">
+            <Accessors>
+             <Accessor Name="get_ClientCacheAgeForErrorMessages():System.TimeSpan">
+              <Messages>
+               <Message TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2005-08-15 13:16:33Z" FixCategory="Breaking">
+                <Issue>
+                 <Item>Eq2ImgSettings.get_ClientCacheAgeForErrorMessages():TimeSpan</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="ClientCacheExpirationForErrorMessages">
+            <Accessors>
+             <Accessor Name="get_ClientCacheExpirationForErrorMessages():System.DateTime">
+              <Messages>
+               <Message TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2005-08-22 18:22:34Z" FixCategory="Breaking">
+                <Issue>
+                 <Item>Eq2ImgSettings.get_ClientCacheExpirationForErrorMessages():DateTime</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="ConfigPrefix">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Excluded" Created="2005-08-15 13:16:33Z">
+              <Issue>
+               <Item>Eq2ImgSettings.ConfigPrefix</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="GetFromContext(System.Web.HttpContext):Astrila.Eq2Img.Eq2ImgSettings">
+            <Messages>
+             <Message Id="System.ArgumentNullException.#ctor(System.String,System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Excluded" Created="2005-08-22 18:22:34Z">
+              <Issue>
+               <Item>Eq2ImgSettings.GetFromContext(HttpContext):Eq2ImgSettings</Item>
+               <Item>2</Item>
+               <Item>ArgumentNullException.ArgumentNullException(String, String)</Item>
+               <Item>The context parameter can not be null</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MimeTexExternalServerUrl">
+            <Messages>
+             <Message TypeName="UriPropertiesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1056" Status="Excluded" Created="2005-08-22 18:22:34Z">
+              <Issue>
+               <Item>MimeTexExternalServerUrl</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MimeTexFullCgiUrl">
+            <Messages>
+             <Message TypeName="UriPropertiesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1056" Status="Excluded" Created="2005-08-22 21:46:47Z">
+              <Issue>
+               <Item>MimeTexFullCgiUrl</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Global">
+          <Members>
+           <Member Name=".ctor()">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2005-08-22 19:07:49Z">
+              <Issue>
+               <Item>Global.Global()</Item>
+               <Item>components</Item>
+               <Item>System.ComponentModel.IContainer</Item>
+               <Item>null</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="components">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Excluded" Created="2005-08-22 19:07:49Z">
+              <Issue>
+               <Item>Global.components</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NativeMethods">
+          <Members>
+           <Member Name="CreateGifFromEq(System.String,System.String):System.Int32">
+            <Messages>
+             <Message TypeName="ReviewSuppressUnmanagedCodeSecurityUsage" Category="Microsoft.Security" CheckId="CA2118" Status="Excluded" Created="2005-08-22 18:22:34Z">
+              <Issue Name="PlatformInvokeStack">
+               <Item>NativeMethods.CreateGifFromEq(String, String):Int32</Item>
+               <Item>&#xD;&#xA;-&gt;Astrila.Eq2Img.NativeMethods.CreateGifFromEq(System.String,System.String) : Int32&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingInProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ShowEq">
+          <Messages>
+           <Message TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706" Status="Excluded" Created="2005-08-15 13:16:33Z">
+            <Issue Name="Type">
+             <Item>Eq</Item>
+             <Item>Astrila.Eq2Img.ShowEq</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="CreateGifUsingCGI(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings):System.Void">
+            <Messages>
+             <Message TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2005-08-22 21:55:16Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>ShowEq.CreateGifUsingCGI(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="context" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2005-08-15 13:16:33Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>context</Item>
+               <Item>ShowEq.CreateGifUsingCGI(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CreateGifUsingExternalUrl(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings):System.Void">
+            <Messages>
+             <Message TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2005-08-22 21:55:16Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>ShowEq.CreateGifUsingExternalUrl(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="context" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2005-08-15 13:16:33Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>context</Item>
+               <Item>ShowEq.CreateGifUsingExternalUrl(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CreateGifUsingInProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings):System.Void">
+            <Messages>
+             <Message TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2005-08-15 13:16:33Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>ShowEq.CreateGifUsingInProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="context" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2005-08-15 13:16:33Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>context</Item>
+               <Item>ShowEq.CreateGifUsingInProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+             <Message Id="settings" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2005-08-15 13:16:33Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>settings</Item>
+               <Item>ShowEq.CreateGifUsingInProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings):System.Void">
+            <Messages>
+             <Message TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122" Status="Excluded" Created="2005-08-15 13:16:33Z">
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>Process.get_StandardError():StreamReader</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.Process.get_StandardError : StreamReader&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>Process.get_StandardOutput():StreamReader</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.Process.get_StandardOutput : StreamReader&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>Process.Start(ProcessStartInfo):Process</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.Process.Start(System.Diagnostics.ProcessStartInfo) : Process&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>Process.WaitForExit():Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.Process.WaitForExit : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>ProcessStartInfo.set_CreateNoWindow(Boolean):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.ProcessStartInfo.set_CreateNoWindow(System.Boolean) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>ProcessStartInfo.set_ErrorDialog(Boolean):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.ProcessStartInfo.set_ErrorDialog(System.Boolean) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>ProcessStartInfo.set_RedirectStandardError(Boolean):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.ProcessStartInfo.set_RedirectStandardError(System.Boolean) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>ProcessStartInfo.set_RedirectStandardOutput(Boolean):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.ProcessStartInfo.set_RedirectStandardOutput(System.Boolean) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+               <Item>ProcessStartInfo.set_UseShellExecute(Boolean):Void</Item>
+               <Item>&#xD;&#xA;-&gt;System.Diagnostics.ProcessStartInfo.set_UseShellExecute(System.Boolean) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.CreateGifUsingOutProc(System.Web.HttpContext,System.String,System.String,Astrila.Eq2Img.Eq2ImgSettings) : Void&#xD;&#xA;-&gt;Astrila.Eq2Img.ShowEq.ProcessRequest(System.Web.HttpContext) : Void</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2005-08-15 13:16:33Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>ShowEq.CreateGifUsingOutProc(HttpContext, String, String, Eq2ImgSettings):Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ProcessRequest(System.Web.HttpContext):System.Void">
+            <Messages>
+             <Message Id="Astrila.Eq2Img.EquationRenderException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Excluded" Created="2005-08-15 14:18:52Z">
+              <Issue>
+               <Item>ShowEq.ProcessRequest(HttpContext):Void</Item>
+               <Item>1</Item>
+               <Item>EquationRenderException.EquationRenderException(String)</Item>
+               <Item>Empty Equation</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.ProcessRequest(HttpContext):Void</Item>
+               <Item>1</Item>
+               <Item>EquationRenderException.EquationRenderException(String)</Item>
+               <Item>Equation Too Long: __</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.ProcessRequest(HttpContext):Void</Item>
+               <Item>1</Item>
+               <Item>EquationRenderException.EquationRenderException(String)</Item>
+               <Item>ImgNotFound: __</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.ArgumentException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Excluded" Created="2005-08-15 14:18:52Z">
+              <Issue>
+               <Item>ShowEq.ProcessRequest(HttpContext):Void</Item>
+               <Item>1</Item>
+               <Item>ArgumentException.ArgumentException(String)</Item>
+               <Item>Unknown MimeTexUsage: __</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.ArgumentNullException.#ctor(System.String,System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Excluded" Created="2005-08-22 21:46:47Z">
+              <Issue>
+               <Item>ShowEq.ProcessRequest(HttpContext):Void</Item>
+               <Item>2</Item>
+               <Item>ArgumentNullException.ArgumentNullException(String, String)</Item>
+               <Item>context can not be null</Item>
+              </Issue>
+             </Message>
+             <Message Id="System.NullReferenceException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Excluded" Created="2005-08-22 21:15:58Z">
+              <Issue>
+               <Item>ShowEq.ProcessRequest(HttpContext):Void</Item>
+               <Item>1</Item>
+               <Item>NullReferenceException.NullReferenceException(String)</Item>
+               <Item>context can not be null</Item>
+              </Issue>
+             </Message>
+             <Message Id="Img" TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204" Status="Excluded" Created="2005-08-16 13:49:48Z">
+              <Issue>
+               <Item>Img</Item>
+               <Item>ImgNotFound</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ValidateGifData(System.Byte[]):System.Void">
+            <Messages>
+             <Message Id="System.ArgumentException.#ctor(System.String)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Excluded" Created="2005-08-15 14:18:52Z">
+              <Issue>
+               <Item>ShowEq.ValidateGifData(Byte[]):Void</Item>
+               <Item>1</Item>
+               <Item>ArgumentException.ArgumentException(String)</Item>
+               <Item>Invalid GIF header. Byte #____ is not __</Item>
+              </Issue>
+              <Issue>
+               <Item>ShowEq.ValidateGifData(Byte[]):Void</Item>
+               <Item>1</Item>
+               <Item>ArgumentException.ArgumentException(String)</Item>
+               <Item>Invalid GIF header. Numbers of bytes is less than expected __</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="WriteStringInGif(System.String,System.String):System.Void">
+            <Messages>
+             <Message Id="System.Drawing.Graphics.MeasureString(System.String,System.Drawing.Font)" TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303" Status="Excluded" Created="2005-08-15 13:16:33Z">
+              <Issue>
+               <Item>ShowEq.WriteStringInGif(String, String):Void</Item>
+               <Item>1</Item>
+               <Item>Graphics.MeasureString(String, Font):SizeF</Item>
+               <Item>[____]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="sshah">
+    <Note Id="0" Modified="2005-08-22 19:30:56Z">ASP.Net _default is not CLSComplient</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign '{0}' with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+    <Resolution Name="Default">It appears that field '{0}' is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotIndirectlyExposeMethodsWithLinkDemands" Category="Microsoft.Security" CheckId="CA2122">
+    <Resolution Name="Default">{0} calls into {1} which has a LinkDemand. By making this call, {1} is indirectly exposed to user code. Review the following call stack that might expose a way to circumvent security protection: {2}</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+    <Resolution Name="Default">{0} initializes field {1} of type {2} to {3}. Remove this initialization as it will be done automatically by the runtime.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotPassLiteralsAsLocalizedParameters" Category="Microsoft.Globalization" CheckId="CA1303">
+    <Resolution Name="Default">{0} passes a literal as parameter {1} of a call to {2}. Retrieve the following string argument from a resource table instead: '{3}'</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Type">Correct the casing of type name '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Namespace">Correct the spelling of the unrecognized token '{0}' in namespace '{1}'.</Resolution>
+    <Resolution Name="Type">Correct the spelling of the unrecognized token '{0}' in type name '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707">
+    <Resolution Name="Type">Remove all underscores from type '{0}'.</Resolution>
+   </Rule>
+   <Rule TypeName="LiteralsShouldBeSpelledCorrectly" Category="Microsoft.Usage" CheckId="CA2204">
+    <Resolution Name="Default">Correct the spelling of the unrecognized token '{0}' in the literal '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="NoAttr">'{0}' should be marked with CLSCompliantAttribute and its value should be true.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in VB) of {0} is never used. Mark the method as static (or Shared in VB) or use 'this'/'Me' in the method body, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewSuppressUnmanagedCodeSecurityUsage" Category="Microsoft.Security" CheckId="CA2118">
+    <Resolution Name="PlatformInvokeStack">Review declarative security for {0} and its callers for potential vulnerabilities. The following call stack might expose a way to circumvent security protection: {1}</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter '{0}' of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="ShortAcronymsShouldBeUppercase" Category="Microsoft.Naming" CheckId="CA1706">
+    <Resolution Name="Type">Correct the capitalization of '{0}' in type name '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="UriPropertiesShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1056">
+    <Resolution Name="Default">Change the type of property '{0}' from string to System.Uri.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

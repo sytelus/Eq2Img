@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eq2Img", "http://localhost/Eq2Img/Eq2Img.csproj", "{AE15D4D1-FD71-4EC4-B7C9-81E9172239B1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{AE15D4D1-FD71-4EC4-B7C9-81E9172239B1}.Debug.ActiveCfg = Debug|.NET
+		{AE15D4D1-FD71-4EC4-B7C9-81E9172239B1}.Debug.Build.0 = Debug|.NET
+		{AE15D4D1-FD71-4EC4-B7C9-81E9172239B1}.Release.ActiveCfg = Release|.NET
+		{AE15D4D1-FD71-4EC4-B7C9-81E9172239B1}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
